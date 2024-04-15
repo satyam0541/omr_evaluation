@@ -8,6 +8,7 @@ import pandas as pd
 
 def omr_calculation():
     def get_main_countours(image):
+        print("hiii")
         cnts = cv2.findContours(image.copy(), cv2.RETR_EXTERNAL,
                                 cv2.CHAIN_APPROX_SIMPLE)
          
