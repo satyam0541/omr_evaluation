@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home Page</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css" integrity="sha512-8RxmFOVaKQe/xtg6lbscU9DU0IRhURWEuiI0tXevv+lXbAHfkpamD4VKFQRto9WgfOJDwOZ74c/s9Yesv3VvIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="static/main.css"/>
+      <link rel="stylesheet" href="static/upload.css"/>
+  </head>
+  <body>
+    <main>
+      <header class="main-header">
+        <section class="brand">
+          <span><a href="/">OMR.io</a></span>
+        </section>
+        <ul class="menu">
+        <li><button id="timelineButton">Roadmap</button></li>
+          
+          <li><button id="Aboutusbtn">About Us</button></li>
+
+          <li><button id="ourteambtn">Our team</button></li>
+        </ul>
+        <section>
+          <span id="welcome-text">Welcome</span>
+          <button id="logout" class="write-btn">Logout</button>
+        </section>
+      </header>
+      <section>
+        <section class="blog-area">
+              <section class="hero">
+                <div class="container">
+                  <div class="content">
+                    <h2>Effortless OMR Evaluation for Accurate Results</h2>
+                    <p>Upload your answer key and answer sheets to get instant and accurate evaluation results powered by AI.</p>
+                    <button type="button" id="save-blog" class="btn-save">Get Started<i class="fa fa-save"></i>
+                    </button>
+                  </div>
+                  <div class="image">
+                    <img src="static/bg-login.jpg" alt="Your Image">
+                  </div>
+                </div>
+              </section>
+        </section>
+      </section>
+
+
+      <section>
+        <section class="blog-area">
+          <div>
+            <h1 style="font-size: 35px;">Upload AnswerKey</h1><br>
+            <div>
+              <p>Points to remember while uploading the AnswerKey</p><br>
+              <ol style="color: red;">
+                <li>image to be upload should have a proper name</li><br>
+                <li>image should be of valid format </li><br>
+                <li>image should be clearly visible </li><br>
+                <li>image must be less than 5mb</li><br>
+              </ol>
+            </div>
+          </div>
+          <div class="box">
+            <h3>upload AnswerKey`</h3>
+            <form id="file1-form" action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" id="image1" accept="image/*" name="file1" multiple />
+            <div class="preview" id="preview1"></div>
+            <input type="submit" value="Upload" id="image1" accept="image/*">
+          </form>
+          </div>
+  
+        </section>
+      </section>
+
+
+      <section>
+        <section class="blog-area">
+          <div>
+            <h1 style="font-size: 35px;">Upload Answer-Sheet</h1><br>
+            <div>
+              <p>Points to remember while uploading the AnswerKey</p><br>
+              <ol style="color: red;">
+                <li>image to be upload should have a proper name</li><br>
+                <li>image should be of valid format </li><br>
+                <li>image should be clearly visible </li><br>
+                <li>image must be less than 5mb</li><br>
+              </ol>
+            </div>
+          </div>
+          <div class="box">
+            <h3>Upload Answersheet</h3>
+            <form id="file2-form" action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" id="image2" name="file2"/>
+            <!-- <div class="preview" id="preview2"></div> -->
+            <input type="submit" value="Upload" id="image2" accept="image/*">
+          </form>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section class="blog-area">
+          <div>
+            <h1 style="font-size: 35px;">Result</h1><br>
+            <div>
+              <button id="submit3" action="/load" class="write-btn">Submit</button>
+              <a id="downloadLink" href="/static/result/ans.csv" class="write-btn" download>Download Result</a>
+            </div>
+          </div>
+        </section>
+      </section>
+      
+
+  </main>
+  </main>
+    <script src="static/write-blog.js"></script>
+    <script src="static/upload.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  </body>
+</html>

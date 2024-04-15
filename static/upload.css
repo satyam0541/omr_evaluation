@@ -1,0 +1,156 @@
+body {
+    background-image: url('https://img.freepik.com/free-vector/white-abstract-background-3d-paper-style_23-2148402786.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1709942400&semt=ais');
+    background-size: cover;
+    font-family: Arial, sans-serif;
+  }
+  
+  .hero {
+    background-color: #111;
+    color: #fff;
+    padding: 100px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .content {
+    width: 60%;
+  }
+  
+  .image {
+    width: 100%; /* Increased width for the image container */
+    text-align: right;
+  }
+  
+  .image img {
+    max-width: 100%;
+    height: auto; /* Ensures the image maintains its aspect ratio */
+  }
+
+  .hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+  }
+  
+  .btn {
+    background-color: #fff;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #eee;
+  }
+  .hero {
+    background-color: #111;
+    color: #fff;
+    padding: 100px 0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .content {
+    width: 60%;
+  }
+  
+  .image {
+    width: 30%;
+    text-align: right;
+  }
+  
+  .image img {
+    max-width: 100%;
+  }
+  
+  .hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+  }
+  
+  .btn {
+    background-color: #fff;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #eee;
+  }
+
+
+  
+  nav {
+    background-color: #d4bd4a;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .box:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  }
+  
+  input[type="file"] {
+    margin: 10px;
+  }
+  
+  .preview {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    background-color: #f8e9e9;
+    background-size: cover;
+  }
+  
+  button {
+    padding: 5px 10px;
+    font-size: 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .capture {
+    margin: 10px;
+  }
+  
