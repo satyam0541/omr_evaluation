@@ -8,10 +8,9 @@ import pandas as pd
 
 def omr_calculation():
     def get_main_countours(image):
-        print("hiii")
         cnts = cv2.findContours(image.copy(), cv2.RETR_EXTERNAL,
                                 cv2.CHAIN_APPROX_SIMPLE)
-         
+
         cnts = imutils.grab_contours(cnts)
         docCnt = []
         if len(cnts) > 0:
@@ -129,10 +128,10 @@ def omr_calculation():
         ans_marked.extend(get_section_ans(thresh4))
         ans_marked.extend(get_section_ans(thresh5))
         return ans_marked
-    
+
     def main(image_path):
         image = cv2.imread(image_path)
-        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)      
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         blurred = cv2.GaussianBlur(gray, (3, 3), 0)
         edged = cv2.Canny(blurred, 75, 200)
         def display():
@@ -159,6 +158,8 @@ def omr_calculation():
             if (warped.shape[0] < 50):  # for height 50+
                 continue
             sections.append(warped)
+        if len(sections) < 3:
+            return {"ans_marked": []}
         ans_marked_section_1 = get_marks_section_2(sections[2])
         ans_marked_section_2 = get_marks_section_1(sections[1])
         ans_marked = []
@@ -193,19 +194,17 @@ def omr_calculation():
                 curr = curr + 1
                 if len(q) == 0:
                     continue
-                else:
-                    if (len(q) == len(r)):          # if  attemting multiple answer
-                        for c in range(len(q)):
-                            if (ansmarked[curr][c] != answer[curr][c]):
-                                break
-                            if(c==len(q)-1):   # if all answers are correct loop reched till end to avoid multiple adding of score for multiple correct
-                                score = score + marks[curr]
-            print(score)
+                elif len(q) == len(r):
+                    for c in range(len(q)):
+                        if ansmarked[curr][c] != answer[curr][c]:
+                            break
+                    else:
+                        score += marks[curr]
             os.remove(FILE_PATH)
             return score
-        score = cal1()         
+        score = cal1()
         marklist.append(score)
-    os.remove(csv_path) 
+    os.remove(csv_path)
     timestamp = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
     filename = f"ans_{timestamp}.csv"
     filepath = os.path.join('static/result/', filename)
@@ -215,4 +214,20 @@ def omr_calculation():
         csvwriter.writerow(fields)
         for i in marklist:
             csvwriter.writerow([i])
+
+    # Cleanup old result files - keep only the latest 5
+    result_dir = 'static/result/'
+    if os.path.exists(result_dir):
+        files = [f for f in os.listdir(result_dir) if f.startswith('ans_') and f.endswith('.csv')]
+        if len(files) > 5:
+            # Sort by modification time and delete oldest files
+            files_with_time = [(os.path.join(result_dir, f), os.path.getmtime(os.path.join(result_dir, f))) for f in files]
+            files_with_time.sort(key=lambda x: x[1])
+            # Delete files beyond the latest 5
+            for file_path, _ in files_with_time[:-5]:
+                try:
+                    os.remove(file_path)
+                except Exception as e:
+                    print(f"Could not delete {file_path}: {e}")
+
     return marklist,filepath

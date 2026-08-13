@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OMR Evaluator</title>
+    <link rel="stylesheet" href="static/main.css" />
+    <link rel="stylesheet" href="static/upload.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="brand">
+        <a href="/">OMR Evaluator</a>
+      </div>
+      <div class="top-badge">Fast Sheet Scoring</div>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Smart evaluation</span>
+          <h1>Upload the answer sheet and CSV answer key to get instant results.</h1>
+          <p>Simple and fast OMR scoring for classrooms, coaching institutes, and assessments.</p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="sheet-card">
+            <div class="sheet-grid"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="upload-panel">
+        <div class="panel-heading">
+          <h2>Upload files</h2>
+          <p>Upload one or more answer-sheet images and a separate CSV answer key.</p>
+        </div>
+
+        <div class="upload-form">
+          <form id="sheetUploadForm" class="upload-card" action="/upload" method="post" enctype="multipart/form-data">
+            <div class="field-group">
+              <label for="imageInput">Answer sheet images</label>
+              <input id="imageInput" type="file" name="file1" accept="image/*" multiple />
+              <small>PNG, JPG, JPEG — add or remove any selected sheets before upload</small>
+              <div id="sheetSelectedFiles" class="file-list"></div>
+            </div>
+            <button type="submit" class="primary-btn">Upload Sheets</button>
+          </form>
+
+          <form id="keyUploadForm" class="upload-card" action="/upload" method="post" enctype="multipart/form-data">
+            <div class="field-group">
+              <label for="csvInput">Answer key CSV</label>
+              <input id="csvInput" type="file" name="file2" accept=".csv" />
+              <small>CSV file with correct answers</small>
+              <div id="keySelectedFiles" class="file-list"></div>
+            </div>
+            <button type="submit" class="primary-btn alt">Upload Key</button>
+          </form>
+        </div>
+
+        <div class="action-row">
+          <button type="button" id="submit3" class="secondary-btn">Evaluate</button>
+        </div>
+      </section>
+
+      <section class="result-panel">
+        <h2>Result</h2>
+        <p id="resultText">No results yet.</p>
+        <a id="downloadLink" class="download-link" href="#" download>Download Result</a>
+      </section>
+    </main>
+
+    <script src="static/upload.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  </body>
+</html>

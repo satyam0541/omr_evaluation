@@ -1,0 +1,13 @@
+venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.git
+.gitignore
+.DS_Store
+.idea
+.vscode
+static/omr_sheets/*
+static/answer_sheet/*
+static/result/*
